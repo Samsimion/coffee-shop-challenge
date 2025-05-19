@@ -1,4 +1,3 @@
-from order import Order
 
 class Coffee:
     def __init__(self,name):
@@ -14,7 +13,8 @@ class Coffee:
         return self._name
     
     def orders(self):
-        return[order for order in Order.all() if order.coffee == self]
+        from order import Order
+        return [order for order in Order.all() if order.coffee == self]
     
     def customers(self):
          return list({order.customer for order in self.orders()})
